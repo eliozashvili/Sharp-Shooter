@@ -1,8 +1,15 @@
+using StarterAssets;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    private StarterAssetsInputs _starterAssetsInputs;
     private Camera _camera;
+
+    private void Awake()
+    {
+        _starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+    }
 
     private void Start()
     {
@@ -16,6 +23,8 @@ public class Weapon : MonoBehaviour
 
     private void HandleRaycast()
     {
+        if (!_starterAssetsInputs.shoot) return;
+
         bool isHit = Physics.Raycast
         (
             _camera.transform.position,
@@ -25,6 +34,10 @@ public class Weapon : MonoBehaviour
         );
 
         if (isHit)
+        {
             Debug.Log(hit.transform.name);
+        }
+
+        _starterAssetsInputs.ShootInput(false);
     }
 }
