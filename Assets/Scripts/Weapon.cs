@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] private int weaponDamage;
+
     private StarterAssetsInputs _starterAssetsInputs;
     private Camera _camera;
 
@@ -24,7 +26,8 @@ public class Weapon : MonoBehaviour
     private void HandleRaycast()
     {
         if (!_starterAssetsInputs.shoot) return;
-
+        // Checks if Raycast hit the GameObject and fills
+        // RaycastHit variable with information about GameObject
         bool isHit = Physics.Raycast
         (
             _camera.transform.position,
@@ -32,12 +35,15 @@ public class Weapon : MonoBehaviour
             out RaycastHit hit,
             Mathf.Infinity
         );
-
-        if (isHit)
+        // Checks if Raycast hit GameObject and if that
+        // GameObject has EnemyHealth component
+        if (isHit && hit.collider.TryGetComponent(out EnemyHealth enemyHealth))
         {
-            Debug.Log(hit.transform.name);
-        }
+            enemyHealth.TakeDamage(weaponDamage);
 
+            Debug.Log("Damage dealt " + weaponDamage + " to " + hit.transform.name);
+        }
+        // Set false so ShootInput will not spam infinitely
         _starterAssetsInputs.ShootInput(false);
     }
 }

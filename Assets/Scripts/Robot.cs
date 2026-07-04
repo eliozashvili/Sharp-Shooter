@@ -19,6 +19,11 @@ public class Robot : MonoBehaviour
 
     private void Update()
     {
+        FindTarget();
+    }
+
+    private void FindTarget()
+    {
         _agent.SetDestination(_player.transform.position);
     }
 }
