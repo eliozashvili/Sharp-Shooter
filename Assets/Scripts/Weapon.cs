@@ -4,7 +4,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private int weaponDamage;
-    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private ParticleSystem muzzleFlashVFX;
+    [SerializeField] private ParticleSystem hitVFX;
     [SerializeField] private Animator animator;
 
     private StarterAssetsInputs _starterAssetsInputs;
@@ -31,7 +32,7 @@ public class Weapon : MonoBehaviour
     {
         if (!_starterAssetsInputs.shoot) return;
 
-        muzzleFlash.Play();
+        muzzleFlashVFX.Play();
         animator.Play(ShootAnimation, 0, 0f);
         // Checks if Raycast hit the GameObject and fills
         // RaycastHit variable with information about GameObject
@@ -42,15 +43,18 @@ public class Weapon : MonoBehaviour
             out RaycastHit hit,
             Mathf.Infinity
         );
+
         // Checks if Raycast hit GameObject and if that
         // GameObject has EnemyHealth component
         if (isHit && hit.collider.TryGetComponent(out EnemyHealth enemyHealth))
         {
+            Instantiate(hitVFX, hit.point, Quaternion.identity, hit.transform);
             enemyHealth.TakeDamage(weaponDamage);
-
-            Debug.Log("Damage dealt " + weaponDamage + " to " + hit.transform.name);
         }
-
+        else
+        {
+            Instantiate(hitVFX, hit.point, Quaternion.identity);
+        }
         // Set false so ShootInput will not spam infinitely
         _starterAssetsInputs.ShootInput(false);
     }
