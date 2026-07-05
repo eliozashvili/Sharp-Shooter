@@ -5,9 +5,12 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private int weaponDamage;
     [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Animator animator;
 
     private StarterAssetsInputs _starterAssetsInputs;
     private Camera _camera;
+
+    private const string ShootAnimation = "Shoot";
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class Weapon : MonoBehaviour
         if (!_starterAssetsInputs.shoot) return;
 
         muzzleFlash.Play();
+        animator.Play(ShootAnimation, 0, 0f);
         // Checks if Raycast hit the GameObject and fills
         // RaycastHit variable with information about GameObject
         bool isHit = Physics.Raycast
