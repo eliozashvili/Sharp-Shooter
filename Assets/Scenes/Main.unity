@@ -3298,6 +3298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 514793037}
   - component: {fileID: 514793038}
+  - component: {fileID: 514793039}
   m_Layer: 3
   m_Name: Active Weapon
   m_TagString: Untagged
@@ -3343,6 +3344,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &514793039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514793036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce86e531a499544a97831a056d45452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveWeapon
+  weaponSO: {fileID: 11400000, guid: ae20a2b0b0f7da84988a2e73de4144d5, type: 2}
 --- !u!43 &534898353
 Mesh:
   m_ObjectHideFlags: 0
@@ -11726,10 +11740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0698f495d4e4a3e4b811cbc7f7a7187a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  weaponSo: {fileID: 11400000, guid: ae20a2b0b0f7da84988a2e73de4144d5, type: 2}
-  muzzleFlashVFX: {fileID: 5815012724208051708}
-  hitVFX: {fileID: 4832713876464942889, guid: 301ebf29eacf87e4a8f5587883fac2d2, type: 3}
-  animator: {fileID: 514793038}
+  muzzleFlashVFX: {fileID: 979300352463251064, guid: e7c819b8aa8df4f488249bc5ab04878e, type: 3}
 --- !u!1 &3588601687202037095
 GameObject:
   m_ObjectHideFlags: 0
@@ -11775,7 +11786,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5478757051617245473, guid: e7c819b8aa8df4f488249bc5ab04878e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.218
+      value: -0.289
       objectReference: {fileID: 0}
     - target: {fileID: 5478757051617245473, guid: e7c819b8aa8df4f488249bc5ab04878e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11854,11 +11865,6 @@ Transform:
   - {fileID: 5815012724226457608}
   m_Father: {fileID: 514793037}
   m_LocalEulerAnglesHint: {x: 0, y: 80, z: -3}
---- !u!198 &5815012724208051708 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 979300352463251064, guid: e7c819b8aa8df4f488249bc5ab04878e, type: 3}
-  m_PrefabInstance: {fileID: 5125948929874343933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5815012724226457608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5478757051617245473, guid: e7c819b8aa8df4f488249bc5ab04878e, type: 3}
