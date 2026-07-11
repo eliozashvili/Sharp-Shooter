@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private int weaponDamage;
+    [SerializeField] private WeaponSo weaponSo;
     [SerializeField] private ParticleSystem muzzleFlashVFX;
     [SerializeField] private ParticleSystem hitVFX;
     [SerializeField] private Animator animator;
@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
         if (isHit && hit.collider.TryGetComponent(out EnemyHealth enemyHealth))
         {
             Instantiate(hitVFX, hit.point, Quaternion.identity, hit.transform);
-            enemyHealth.TakeDamage(weaponDamage);
+            enemyHealth.TakeDamage(weaponSo.damage);
         }
         else
         {
