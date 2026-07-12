@@ -18,12 +18,12 @@ public class ActiveWeapon : MonoBehaviour
     private void Awake()
     {
         _starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
-        _animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
         _currentWeapon = GetComponentInChildren<Weapon>();
+        _animator = GetComponentInChildren<Animator>();
         // Initializing cooldown so we can shoot a weapon as soon as we grab it
         _timeSinceLastShot = weaponSO.FireRate;
     }
@@ -43,7 +43,9 @@ public class ActiveWeapon : MonoBehaviour
         _animator.Play(ShootAnimationString, 0, 0f);
 
         _timeSinceLastShot = 0f;
+
         // Set false so ShootInput will not spam infinitely
-        _starterAssetsInputs.ShootInput(false);
+        if (!weaponSO.IsAutomatic)
+            _starterAssetsInputs.ShootInput(false);
     }
 }

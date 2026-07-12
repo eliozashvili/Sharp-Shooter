@@ -8,4 +8,5 @@ public class WeaponSO : ScriptableObject
 
     public int Damage;
     public float FireRate;
+    public bool IsAutomatic;
 }

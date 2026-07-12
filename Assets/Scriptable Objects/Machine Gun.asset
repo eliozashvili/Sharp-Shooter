@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSo
   HitVFX: {fileID: 4832713876464942889, guid: 301ebf29eacf87e4a8f5587883fac2d2, type: 3}
   Damage: 1
-  FireRate: 0.2
+  FireRate: 0.1
+  IsAutomatic: 1
