@@ -554,6 +554,67 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &363391222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3410873323115790801, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: ae20a2b0b0f7da84988a2e73de4144d5, type: 2}
+    - target: {fileID: 4407346847514563818, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_Name
+      value: Pistol Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.096869
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.9278874
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323921589862853819, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 613ddaab1fa768a4b8d30a56a8e9123f, type: 3}
 --- !u!1001 &402351814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3527,7 +3588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &551510570
 Transform:
   m_ObjectHideFlags: 0
@@ -5959,6 +6020,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da4cfb6d21d725b41ae48e4569e85fb4, type: 3}
+--- !u!1001 &1334645401
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1035470331593421545, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: weaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c83e8d5658bcf943b4554991b818e79, type: 2}
+    - target: {fileID: 2027019417353955282, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_Name
+      value: Machin Gun Pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.8447027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.824993
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947391181239508867, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb8a229c48c49ca4c856fc42895c4d46, type: 3}
 --- !u!1 &1358817556
 GameObject:
   m_ObjectHideFlags: 0
@@ -11781,3 +11903,5 @@ SceneRoots:
   - {fileID: 964908044}
   - {fileID: 176465138}
   - {fileID: 1417858466}
+  - {fileID: 1334645401}
+  - {fileID: 363391222}

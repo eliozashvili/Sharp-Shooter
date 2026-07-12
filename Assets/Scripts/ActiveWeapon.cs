@@ -35,6 +35,11 @@ public class ActiveWeapon : MonoBehaviour
         HandleShoot();
     }
 
+    public void SwitchWeapon(WeaponSO weapon)
+    {
+        Debug.Log(weapon.name);
+    }
+
     private void HandleShoot()
     {
         if (!_starterAssetsInputs.shoot || _timeSinceLastShot <= weaponSO.FireRate) return;
