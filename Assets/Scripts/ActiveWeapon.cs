@@ -11,7 +11,9 @@ public class ActiveWeapon : MonoBehaviour
 
     private Weapon _currentWeapon;
 
-    private const string ShootAnimation = "Shoot";
+    private const string ShootAnimationString = "Shoot";
+
+    private float _timeSinceLastShot;
 
     private void Awake()
     {
@@ -22,20 +24,25 @@ public class ActiveWeapon : MonoBehaviour
     private void Start()
     {
         _currentWeapon = GetComponentInChildren<Weapon>();
+        // Initializing cooldown so we can shoot a weapon as soon as we grab it
+        _timeSinceLastShot = weaponSO.FireRate;
     }
 
     private void Update()
     {
+        _timeSinceLastShot += Time.deltaTime;
+
         HandleShoot();
     }
 
     private void HandleShoot()
     {
-        if (!_starterAssetsInputs.shoot) return;
+        if (!_starterAssetsInputs.shoot || _timeSinceLastShot <= weaponSO.FireRate) return;
 
         _currentWeapon.Shoot(weaponSO);
-        _animator.Play(ShootAnimation, 0, 0f);
+        _animator.Play(ShootAnimationString, 0, 0f);
 
+        _timeSinceLastShot = 0f;
         // Set false so ShootInput will not spam infinitely
         _starterAssetsInputs.ShootInput(false);
     }

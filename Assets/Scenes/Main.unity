@@ -3356,7 +3356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce86e531a499544a97831a056d45452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActiveWeapon
-  weaponSO: {fileID: 11400000, guid: ae20a2b0b0f7da84988a2e73de4144d5, type: 2}
+  weaponSO: {fileID: 11400000, guid: 3e028cd5b3fefab4cb2503734353cbd1, type: 2}
 --- !u!43 &534898353
 Mesh:
   m_ObjectHideFlags: 0
