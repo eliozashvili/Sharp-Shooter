@@ -1,5 +1,6 @@
 using UnityEngine;
 using StarterAssets;
+using Unity.VisualScripting;
 
 public class ActiveWeapon : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Awake()
     {
+        _currentWeapon = GetComponentInChildren<Weapon>();
+        _animator = GetComponentInChildren<Animator>();
         _starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
     }
 
     private void Start()
     {
-        _currentWeapon = GetComponentInChildren<Weapon>();
-        _animator = GetComponentInChildren<Animator>();
         // Initializing cooldown so we can shoot a weapon as soon as we grab it
         _timeSinceLastShot = weaponSO.FireRate;
     }
@@ -37,7 +38,18 @@ public class ActiveWeapon : MonoBehaviour
 
     public void SwitchWeapon(WeaponSO weapon)
     {
-        Debug.Log(weapon.name);
+        // Destroy weapon player holds currently in hands
+        if (_currentWeapon)
+            Destroy(_currentWeapon.gameObject);
+        // When player triggers pickup, instantiate picked up weapon
+        // and child it to Active Weapon Game Object
+        Weapon newWeapon = Instantiate(weapon.WeaponPrefab, transform);
+        // Update animator for new weapon
+        _animator = newWeapon.GetComponentInChildren<Animator>();
+        // Update current weapon
+        _currentWeapon = newWeapon;
+        // Update weaponSO so we always have correct SO for current weapon
+        weaponSO = weapon;
     }
 
     private void HandleShoot()

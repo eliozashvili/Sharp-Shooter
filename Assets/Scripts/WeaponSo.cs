@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponSO", menuName = "Scriptable Objects/WeaponsSO")]
 public class WeaponSO : ScriptableObject
 {
+    public Weapon WeaponPrefab;
     public ParticleSystem HitVFX;
 
     public int Damage;
