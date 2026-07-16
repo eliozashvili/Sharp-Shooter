@@ -1,6 +1,5 @@
 using UnityEngine;
 using StarterAssets;
-using Unity.VisualScripting;
 
 public class ActiveWeapon : MonoBehaviour
 {
@@ -31,9 +30,8 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Update()
     {
-        _timeSinceLastShot += Time.deltaTime;
-
         HandleShoot();
+        HandleZoom();
     }
 
     public void SwitchWeapon(WeaponSO weapon)
@@ -54,6 +52,8 @@ public class ActiveWeapon : MonoBehaviour
 
     private void HandleShoot()
     {
+        _timeSinceLastShot += Time.deltaTime;
+
         if (!_starterAssetsInputs.shoot || _timeSinceLastShot <= weaponSO.FireRate) return;
 
         _currentWeapon.Shoot(weaponSO);
@@ -64,5 +64,19 @@ public class ActiveWeapon : MonoBehaviour
         // Set false so ShootInput will not spam infinitely
         if (!weaponSO.IsAutomatic)
             _starterAssetsInputs.ShootInput(false);
+    }
+
+    private void HandleZoom()
+    {
+        if (!weaponSO.CanZoom) return;
+
+        if (_starterAssetsInputs.zoom)
+        {
+            Debug.Log("Zooming");
+        }
+        else
+        {
+            Debug.Log("Not Zooming");
+        }
     }
 }
