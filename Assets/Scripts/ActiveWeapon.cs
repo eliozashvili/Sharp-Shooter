@@ -1,31 +1,43 @@
 using UnityEngine;
 using StarterAssets;
+using Unity.Cinemachine;
+using UnityEngine.UI;
 
 public class ActiveWeapon : MonoBehaviour
 {
     [SerializeField] private WeaponSO weaponSO;
+#pragma warning disable CS0618 // Type or member is obsolete
+    [SerializeField] private CinemachineVirtualCamera playerFollowCamera;
+#pragma warning restore CS0618 // Type or member is obsolete
+    [SerializeField] private Image zoomVignette;
 
     private StarterAssetsInputs _starterAssetsInputs;
     private Camera _camera;
     private Animator _animator;
 
     private Weapon _currentWeapon;
+    private FirstPersonController _firstPersonController;
 
     private const string ShootAnimationString = "Shoot";
 
     private float _timeSinceLastShot;
+    private float _defaultFOV;
+    private float _defaultRotationSpeed;
 
     private void Awake()
     {
         _currentWeapon = GetComponentInChildren<Weapon>();
         _animator = GetComponentInChildren<Animator>();
         _starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+        _firstPersonController = GetComponentInParent<FirstPersonController>();
     }
 
     private void Start()
     {
         // Initializing cooldown so we can shoot a weapon as soon as we grab it
         _timeSinceLastShot = weaponSO.FireRate;
+        _defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
+        _defaultRotationSpeed = _firstPersonController.RotationSpeed;
     }
 
     private void Update()
@@ -72,11 +84,15 @@ public class ActiveWeapon : MonoBehaviour
 
         if (_starterAssetsInputs.zoom)
         {
-            Debug.Log("Zooming");
+            playerFollowCamera.m_Lens.FieldOfView = weaponSO.ZoomAmount;
+            zoomVignette.gameObject.SetActive(true);
+            _firstPersonController.ChangeRotationSpeed(weaponSO.ZoomRotationSpeed);
         }
         else
         {
-            Debug.Log("Not Zooming");
+            playerFollowCamera.m_Lens.FieldOfView = _defaultFOV;
+            zoomVignette.gameObject.SetActive(false);
+            _firstPersonController.ChangeRotationSpeed(_defaultRotationSpeed);
         }
     }
 }

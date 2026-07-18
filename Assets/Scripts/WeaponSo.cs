@@ -11,4 +11,6 @@ public class WeaponSO : ScriptableObject
     public float FireRate;
     public bool IsAutomatic;
     public bool CanZoom;
+    public float ZoomAmount;
+    public float ZoomRotationSpeed;
 }

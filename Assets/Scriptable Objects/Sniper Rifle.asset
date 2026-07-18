@@ -18,3 +18,5 @@ MonoBehaviour:
   FireRate: 1.5
   IsAutomatic: 0
   CanZoom: 1
+  ZoomAmount: 15
+  ZoomRotationSpeed: 0.3
