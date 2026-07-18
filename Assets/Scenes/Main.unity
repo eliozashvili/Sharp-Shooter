@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper Rifle Anchor
       objectReference: {fileID: 0}
+    - target: {fileID: 4740129530054202234, guid: b83352fc6b7e02946bc4f7e4d27b8028, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6569191736817251382, guid: b83352fc6b7e02946bc4f7e4d27b8028, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

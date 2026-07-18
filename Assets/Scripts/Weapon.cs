@@ -3,6 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private ParticleSystem muzzleFlashVFX;
+    [SerializeField] private LayerMask layerMask;
 
     private Camera _camera;
 
@@ -20,7 +21,9 @@ public class Weapon : MonoBehaviour
             _camera.transform.position,
             _camera.transform.forward,
             out RaycastHit hit,
-            Mathf.Infinity
+            Mathf.Infinity,
+            layerMask.value,
+            QueryTriggerInteraction.Ignore
         );
         muzzleFlashVFX.Play();
         // Checks if Raycast hit GameObject and if that
