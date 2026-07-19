@@ -17,3 +17,7 @@ MonoBehaviour:
   Damage: 1
   FireRate: 0.1
   IsAutomatic: 1
+  CanZoom: 0
+  ZoomAmount: 0
+  ZoomRotationSpeed: 0
+  MagazineSize: 30

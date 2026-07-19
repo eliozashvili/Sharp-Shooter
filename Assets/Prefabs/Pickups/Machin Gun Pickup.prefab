@@ -90,21 +90,25 @@ PrefabInstance:
       propertyPath: weaponSO
       value: 
       objectReference: {fileID: 11400000, guid: 4c83e8d5658bcf943b4554991b818e79, type: 2}
+    - target: {fileID: 2474452786013933825, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
+      propertyPath: rotationSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3470256741255562298, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_Name
       value: Machin Gun Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.824993
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalRotation.w

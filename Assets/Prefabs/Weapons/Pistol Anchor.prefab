@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5756388215872943962}
   - component: {fileID: 8956495239971676142}
   - component: {fileID: 4837690910011699801}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Pistol_02_Blue_Team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 6881769357606533773}
   - component: {fileID: 2332617653330911445}
   - component: {fileID: 7404787605575449020}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Pistol Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7814762192140732188}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9087728445219955353}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 4862284815596035, guid: 38f21a9f1fae30f418de48d12c8b3257, type: 3}
       propertyPath: m_Name
       value: Muzzle Flash VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862284815596035, guid: 38f21a9f1fae30f418de48d12c8b3257, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6828791716745281571, guid: 38f21a9f1fae30f418de48d12c8b3257, type: 3}
       propertyPath: m_LocalScale.x

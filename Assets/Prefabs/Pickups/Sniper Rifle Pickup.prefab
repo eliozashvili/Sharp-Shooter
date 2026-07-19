@@ -90,21 +90,25 @@ PrefabInstance:
       propertyPath: weaponSO
       value: 
       objectReference: {fileID: 11400000, guid: 3e028cd5b3fefab4cb2503734353cbd1, type: 2}
+    - target: {fileID: 2474452786013933825, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
+      propertyPath: rotationSpeed
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 3470256741255562298, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_Name
       value: Sniper Rifle
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.74
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: 7539330771298597995, guid: 9307f7bf80455254d9606fa0080fa852, type: 3}
       propertyPath: m_LocalRotation.w
