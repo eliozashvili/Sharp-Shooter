@@ -17,7 +17,6 @@ public class ActiveWeapon : MonoBehaviour
     private Camera _camera;
     private Animator _animator;
 
-    private WeaponSO _currentWeaponSO;
     private Weapon _currentWeapon;
     private FirstPersonController _firstPersonController;
 
@@ -26,7 +25,9 @@ public class ActiveWeapon : MonoBehaviour
     private float _timeSinceLastShot;
     private float _defaultFOV;
     private float _defaultRotationSpeed;
-    private int _currentAmmo;
+
+    public WeaponSO CurrentWeaponSO { get; private set; }
+    public int CurrentAmmo { get; private set; }
 
     private void Awake()
     {
@@ -38,10 +39,10 @@ public class ActiveWeapon : MonoBehaviour
     private void Start()
     {
         SwitchWeapon(startingWeaponSO);
-        HandleAmmo(_currentWeaponSO.MagazineSize);
+        HandleAmmo(CurrentWeaponSO.MagazineSize);
 
         // Initializing cooldown so we can shoot a weapon as soon as we grab it
-        _timeSinceLastShot = _currentWeaponSO.FireRate;
+        _timeSinceLastShot = CurrentWeaponSO.FireRate;
         _defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         _defaultRotationSpeed = _firstPersonController.RotationSpeed;
     }
@@ -54,12 +55,12 @@ public class ActiveWeapon : MonoBehaviour
 
     public void HandleAmmo(int amount)
     {
-        _currentAmmo += amount;
+        CurrentAmmo += amount;
 
-        if (_currentAmmo > _currentWeaponSO.MagazineSize)
-            _currentAmmo = _currentWeaponSO.MagazineSize;
+        if (CurrentAmmo > CurrentWeaponSO.MagazineSize)
+            CurrentAmmo = CurrentWeaponSO.MagazineSize;
 
-        ammoText.text = _currentAmmo.ToString("D2");
+        ammoText.text = CurrentAmmo.ToString("D2");
     }
 
     public void SwitchWeapon(WeaponSO weapon)
@@ -75,9 +76,9 @@ public class ActiveWeapon : MonoBehaviour
         // Update current weapon
         _currentWeapon = newWeapon;
         // Update _currentWeaponSO so we always have correct SO for current weapon
-        _currentWeaponSO = weapon;
+        CurrentWeaponSO = weapon;
 
-        HandleAmmo(_currentWeaponSO.MagazineSize);
+        HandleAmmo(CurrentWeaponSO.MagazineSize);
     }
 
     private void HandleShoot()
@@ -86,27 +87,27 @@ public class ActiveWeapon : MonoBehaviour
 
         if (!_starterAssetsInputs.shoot) return;
 
-        if (_timeSinceLastShot >= _currentWeaponSO.FireRate && _currentAmmo > 0)
+        if (_timeSinceLastShot >= CurrentWeaponSO.FireRate && CurrentAmmo > 0)
         {
-            _currentWeapon.Shoot(_currentWeaponSO);
+            _currentWeapon.Shoot(CurrentWeaponSO);
             _animator.Play(ShootAnimationString, 0, 0f);
             _timeSinceLastShot = 0f;
             HandleAmmo(-1);
         }
         // Set false so ShootInput will not spam infinitely
-        if (!_currentWeaponSO.IsAutomatic)
+        if (!CurrentWeaponSO.IsAutomatic)
             _starterAssetsInputs.ShootInput(false);
     }
 
     private void HandleZoom()
     {
-        if (!_currentWeaponSO.CanZoom) return;
+        if (!CurrentWeaponSO.CanZoom) return;
 
         if (_starterAssetsInputs.zoom)
         {
-            playerFollowCamera.m_Lens.FieldOfView = _currentWeaponSO.ZoomAmount;
+            playerFollowCamera.m_Lens.FieldOfView = CurrentWeaponSO.ZoomAmount;
             zoomVignette.gameObject.SetActive(true);
-            _firstPersonController.ChangeRotationSpeed(_currentWeaponSO.ZoomRotationSpeed);
+            _firstPersonController.ChangeRotationSpeed(CurrentWeaponSO.ZoomRotationSpeed);
         }
         else
         {

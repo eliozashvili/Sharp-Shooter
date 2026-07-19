@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour
+public class AmmoPickup : Pickup
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private int ammoAmount;
+
+    private ActiveWeapon _activeWeapon;
+
+    private void Start()
     {
-        
+        _activeWeapon = FindAnyObjectByType<ActiveWeapon>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnPickup(ActiveWeapon activeWeapon)
     {
-        
+        if (_activeWeapon.CurrentAmmo == _activeWeapon.CurrentWeaponSO.MagazineSize) return;
+
+        activeWeapon.HandleAmmo(ammoAmount);
+
+        Destroy(gameObject);
     }
 }
