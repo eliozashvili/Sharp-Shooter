@@ -4984,6 +4984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc429426d94100d4a8deaebf8b10f456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  weaponCamera: {fileID: 1280824182}
   playerHealth: 10
 --- !u!1 &1176285966
 GameObject:
