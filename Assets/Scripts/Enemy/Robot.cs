@@ -26,6 +26,8 @@ public class Robot : MonoBehaviour
 
     private void FindTarget()
     {
+        if (!_player) return;
+
         _agent.SetDestination(_player.transform.position);
     }
 
