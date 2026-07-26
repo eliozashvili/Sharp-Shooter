@@ -5318,8 +5318,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc429426d94100d4a8deaebf8b10f456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerHealth: 5
   weaponCamera: {fileID: 1280824182}
-  playerHealth: 10
+  shieldBars:
+  - {fileID: 1850808604}
+  - {fileID: 1234833002}
+  - {fileID: 720126438}
+  - {fileID: 292714956}
+  - {fileID: 1212017205}
+  - {fileID: 711536528}
+  - {fileID: 1352496913}
+  - {fileID: 1433509108}
+  - {fileID: 1409730056}
+  - {fileID: 535604304}
 --- !u!1 &1176285966
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,23 +1,45 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Range(0, 10)] [SerializeField] private int playerHealth;
     [SerializeField] private Transform weaponCamera;
-    [SerializeField] private int playerHealth;
+    [SerializeField] private Image[] shieldBars;
+
+    private int _currentHealth;
+
+    private void Awake()
+    {
+        _currentHealth = playerHealth;
+        AdjustShieldBarsUI();
+    }
 
     public void TakeDamage(int damage)
     {
-        playerHealth -= damage;
+        _currentHealth -= damage;
 
-        if (playerHealth <= 0)
-        {
-            DeathCamera();
-            Destroy(gameObject);
-        }
+        AdjustShieldBarsUI();
 
-        Debug.Log(playerHealth);
+        if (_currentHealth > 0) return;
+
+        DeathCamera();
+        Destroy(gameObject);
     }
+
+    private void AdjustShieldBarsUI()
+    {
+        // Upon executing Explode() in Explosion.cs player damage
+        // is passed down to TakeDamage() then this function is executed,
+        // and it starts a loop, if loop iteration is more than player health,
+        // rest of the Shield Bars are deactivated
+        for (var i = 0; i < shieldBars.Length; i++)
+        {
+            shieldBars[i].gameObject.SetActive(i < _currentHealth);
+        }
+    }
+
     // Freezes camera where player was looking at the moment of death
     private void DeathCamera()
     {
