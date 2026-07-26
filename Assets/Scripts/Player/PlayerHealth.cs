@@ -8,21 +8,22 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Transform weaponCamera;
     [SerializeField] private Image[] shieldBars;
 
-    private int _currentHealth;
+    public int PlayerCurrentHealth { get; private set; }
+
 
     private void Awake()
     {
-        _currentHealth = playerHealth;
+        PlayerCurrentHealth = playerHealth;
         AdjustShieldBarsUI();
     }
 
     public void TakeDamage(int damage)
     {
-        _currentHealth -= damage;
+        PlayerCurrentHealth -= damage;
 
         AdjustShieldBarsUI();
 
-        if (_currentHealth > 0) return;
+        if (PlayerCurrentHealth > 0) return;
 
         DeathCamera();
         Destroy(gameObject);
@@ -36,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         // rest of the Shield Bars are deactivated
         for (var i = 0; i < shieldBars.Length; i++)
         {
-            shieldBars[i].gameObject.SetActive(i < _currentHealth);
+            shieldBars[i].gameObject.SetActive(i < PlayerCurrentHealth);
         }
     }
 
