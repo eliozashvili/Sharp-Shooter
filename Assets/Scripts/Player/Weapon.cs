@@ -23,8 +23,12 @@ public class Weapon : MonoBehaviour
         _camera = Camera.main;
     }
 
-    public void Shoot(WeaponSO weaponSO, bool isZoomed)
+    public void Shoot(WeaponSO weaponSO)
     {
+        muzzleFlashVFX.Play();
+        _impulseSource.GenerateImpulse();
+        _animator.Play(ShootAnimationString, 0, 0f);
+
         // Checks if Raycast hit the GameObject and fills
         // RaycastHit variable with information about GameObject
         bool isHit = Physics.Raycast
@@ -36,16 +40,13 @@ public class Weapon : MonoBehaviour
             layerMask.value,
             QueryTriggerInteraction.Ignore
         );
-
-        muzzleFlashVFX.Play();
-        _impulseSource.GenerateImpulse();
-        _animator.Play(ShootAnimationString, 0, 0f);
-
         // Checks if Raycast hit GameObject and if that
         // GameObject has EnemyHealth component
         if (!isHit) return;
 
-        if (hit.collider.TryGetComponent(out EnemyHealth enemyHealth))
+        var enemyHealth = hit.collider.GetComponentInParent<EnemyHealth>(false);
+
+        if (enemyHealth)
         {
             Instantiate(weaponSO.HitVFX, hit.point, Quaternion.identity, hit.transform);
             enemyHealth.TakeDamage(weaponSO.Damage);

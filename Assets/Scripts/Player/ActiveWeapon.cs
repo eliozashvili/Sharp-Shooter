@@ -84,7 +84,7 @@ public class ActiveWeapon : MonoBehaviour
 
         if (_timeSinceLastShot >= CurrentWeaponSO.FireRate && CurrentAmmo > 0)
         {
-            _currentWeapon.Shoot(CurrentWeaponSO, _starterAssetsInputs.zoom);
+            _currentWeapon.Shoot(CurrentWeaponSO);
             _timeSinceLastShot = 0f;
             HandleAmmo(-1);
         }
