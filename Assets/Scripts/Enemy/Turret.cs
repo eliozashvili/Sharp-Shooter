@@ -6,8 +6,9 @@ public class Turret : MonoBehaviour
     [SerializeField] private Transform turretTower;
     [SerializeField] private Transform playerPosition;
     [SerializeField] private Transform projectileSpawnPoint;
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float spawnInterval;
+    [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private float projectileSpawnInterval;
+    [SerializeField] private int damage;
 
     private PlayerHealth _playerHealth;
 
@@ -25,11 +26,14 @@ public class Turret : MonoBehaviour
 
     private IEnumerator FireProjectile()
     {
-        var wait = new WaitForSeconds(spawnInterval);
+        var wait = new WaitForSeconds(projectileSpawnInterval);
 
         while (_playerHealth && _playerHealth.PlayerCurrentHealth > 0)
         {
-            Instantiate(projectilePrefab, projectileSpawnPoint.position, turretTower.rotation);
+            Projectile newProjectile =
+                Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+            newProjectile.transform.LookAt(playerPosition);
+            newProjectile.Init(damage);
 
             yield return wait;
         }
