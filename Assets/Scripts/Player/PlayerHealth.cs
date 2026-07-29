@@ -1,4 +1,5 @@
 using UnityEngine;
+using StarterAssets;
 using Unity.Cinemachine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [Range(0, 10)] [SerializeField] private int playerHealth;
     [SerializeField] private Transform weaponCamera;
     [SerializeField] private Image[] shieldBars;
+    [SerializeField] private GameObject gameOverContainer;
 
     public int PlayerCurrentHealth { get; private set; }
 
@@ -26,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         if (PlayerCurrentHealth > 0) return;
 
         DeathCamera();
+        GameOverContainer();
         Destroy(gameObject);
     }
 
@@ -39,6 +42,13 @@ public class PlayerHealth : MonoBehaviour
         {
             shieldBars[i].gameObject.SetActive(i < PlayerCurrentHealth);
         }
+    }
+
+    private void GameOverContainer()
+    {
+        gameOverContainer.SetActive(true);
+        var starterAssetsInputs = FindAnyObjectByType<StarterAssetsInputs>();
+        starterAssetsInputs.SetCursorState(false);
     }
 
     // Freezes camera where player was looking at the moment of death
