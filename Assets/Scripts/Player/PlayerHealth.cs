@@ -1,17 +1,13 @@
 using UnityEngine;
-using StarterAssets;
-using Unity.Cinemachine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Range(0, 10)] [SerializeField] private int playerHealth;
-    [SerializeField] private Transform weaponCamera;
     [SerializeField] private Image[] shieldBars;
-    [SerializeField] private GameObject gameOverContainer;
+    [SerializeField] private GameManager gameManager;
 
     public int PlayerCurrentHealth { get; private set; }
-
 
     private void Awake()
     {
@@ -27,8 +23,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (PlayerCurrentHealth > 0) return;
 
-        DeathCamera();
-        GameOverContainer();
+        gameManager.DeathCamera();
+        gameManager.GameOverContainer();
         Destroy(gameObject);
     }
 
@@ -42,25 +38,5 @@ public class PlayerHealth : MonoBehaviour
         {
             shieldBars[i].gameObject.SetActive(i < PlayerCurrentHealth);
         }
-    }
-
-    private void GameOverContainer()
-    {
-        gameOverContainer.SetActive(true);
-        var starterAssetsInputs = FindAnyObjectByType<StarterAssetsInputs>();
-        starterAssetsInputs.SetCursorState(false);
-    }
-
-    // Freezes camera where player was looking at the moment of death
-    private void DeathCamera()
-    {
-        Camera mainCam = Camera.main;
-
-        if (!mainCam) return;
-
-        if (mainCam.TryGetComponent(out CinemachineBrain brain))
-            brain.enabled = false;
-
-        weaponCamera.parent = null;
     }
 }

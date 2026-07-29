@@ -55,6 +55,11 @@ namespace StarterAssets
 		{
 			ShootInput(value.isPressed);
 		}
+
+		public void OnZoom(InputValue value)
+		{
+			ZoomInput(value.isPressed);
+		}
 #endif
 
 
@@ -91,6 +96,11 @@ namespace StarterAssets
 		public void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		}
+
+		public void ZoomInput(bool newZoomState)
+		{
+			zoom = newZoomState;
 		}
 	}
 	
